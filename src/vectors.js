@@ -235,30 +235,36 @@ function updateVectorArrows() {
     const lDir = dirNorm.clone().cross(tanDir).normalize();
     if (lDir.y < 0) lDir.multiplyScalar(-1);
 
+    const distFmt = formatDistance(distKm);
+    const velFmt  = velKmS.toFixed(1) + ' km/s';
+    const massFmt = massInfo ? massInfo.label : '?';
+    const accelFmt = formatAccel(accel);
+    const angFmt  = formatAngularMomentum(lMag);
+
     // Radius label: midpoint
     vectorLabels[0].worldPos.copy(
       origin.clone().add(dir.clone().multiplyScalar(0.5))
     );
-    vectorLabels[0].el.textContent = formatDistance(distKm);
+    vectorLabels[0].el.textContent = `r = ${distFmt}`;
 
-    // Velocity label
+    // Velocity + mass label
     vectorLabels[1].worldPos.copy(
       planetPos.clone().add(tanDir.clone().multiplyScalar(vLen * 1.2))
     );
     vectorLabels[1].el.textContent =
-      `${velKmS.toFixed(1)} km/s  |  ${massInfo ? massInfo.label : '?'}`;
+      `v = 2πr/T = ${velFmt}\nm = ${massFmt}`;
 
     // Acceleration label
     vectorLabels[2].worldPos.copy(
       planetPos.clone().add(aDir.clone().multiplyScalar(aLen * 1.4))
     );
-    vectorLabels[2].el.textContent = formatAccel(accel);
+    vectorLabels[2].el.textContent = `a = v²/r = ${accelFmt}`;
 
     // Angular momentum label
     vectorLabels[3].worldPos.copy(
       planetPos.clone().add(lDir.clone().multiplyScalar(lLen * 1.3))
     );
-    vectorLabels[3].el.textContent = formatAngularMomentum(lMag);
+    vectorLabels[3].el.textContent = `L = m·v·r = ${angFmt}`;
   }
 }
 

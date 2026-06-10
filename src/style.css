@@ -269,7 +269,8 @@ html, body {
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
-  white-space: nowrap;
+  white-space: pre-line;
+  text-align: center;
   transform: translate(-50%, -50%);
   background: rgba(0, 3, 15, 0.78);
   border: 1px solid rgba(255,255,255,0.10);
