@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>★ STAR MAP</title>
+<link rel="stylesheet" href="src/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+<div id="loading">
+  <div id="loading-title">★ STAR MAP</div>
+  <div id="loading-bar-wrap"><div id="loading-bar"></div></div>
+  <div id="loading-text">Initialising star field...</div>
+</div>
+
+<div id="scanlines"></div>
+<canvas id="three-canvas"></canvas>
+
+<!-- TOP BAR -->
+<div id="top-bar">
+  <div id="app-title">★ STAR MAP</div>
+  <button id="nav-btn" style="display:none"></button>
+</div>
+
+<!-- TOOLTIP -->
+<div id="tooltip"></div>
+
+<!-- GALAXY MARKER LABEL -->
+<div id="galaxy-marker-label">◈ SOLAR SYSTEM</div>
+
+<!-- INFO PANEL -->
+<div id="info-panel"></div>
+
+<!-- BOTTOM HUD -->
+<div id="bottom-hud" class="hidden">
+  <button class="hud-btn" id="btn-pause">⏸ PAUSE</button>
+  <button class="hud-btn active" id="btn-play">▶ PLAY</button>
+  <button class="hud-btn" id="btn-fast">⏩ FAST</button>
+</div>
+
+<!-- ZOOM CONTROLS -->
+<div id="zoom-controls">
+  <button class="zoom-btn" id="btn-zoom-in" title="Zoom in">+</button>
+  <button class="zoom-btn" id="btn-zoom-out" title="Zoom out">−</button>
+  <button class="zoom-btn" id="btn-reset-cam" title="Reset camera">⟳</button>
+</div>
+
+<script src="src/app.js"></script>
+</body>
+</html>
