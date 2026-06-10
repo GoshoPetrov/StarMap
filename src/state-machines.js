@@ -45,12 +45,15 @@ function createObjectMachine(mesh, data, parentData) {
       if (state === 'IDLE') {
         if (mat.emissive) { mat.emissive.setHex(0x000000); mat.emissiveIntensity = 0; }
         hideTooltip();
+        hideVectors();
         canvas.classList.remove('hovering');
       } else if (state === 'HOVERED') {
         if (mat.emissive) { mat.emissive.setHex(0xffffff); mat.emissiveIntensity = 0.3; }
         showTooltip(this.data.name, mouseX, mouseY);
+        showVectors({ data: this.data, mesh: this.mesh, parentData: this.parentData });
         canvas.classList.add('hovering');
       } else if (state === 'SELECTED') {
+        hideVectors();
         if (mat.emissive) { mat.emissive.setHex(0x88ccff); mat.emissiveIntensity = 0.6; }
         viewMachine.send('SELECT_OBJECT', { machine: this });
       }

@@ -116,6 +116,7 @@ async function buildSolarSystem() {
 }
 
 function teardownSolarSystem() {
+  hideVectors();
   solarSystemObjects = [];
   orbitLines = [];
   asteroidBelt = null;

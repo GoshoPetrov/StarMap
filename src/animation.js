@@ -86,6 +86,10 @@ function animate() {
     }
   }
 
+  // Update vector overlays
+  if (typeof updateVectorArrows === 'function') updateVectorArrows();
+  if (typeof updateVectorLabels === 'function') updateVectorLabels();
+
   // Lazy raycasting
   if (raycasterDirty) {
     raycasterDirty = false;
